@@ -29,6 +29,7 @@ rgbColour = (100,100,100)
 def draw_game():
     p1Paddle = (p1X,p1Y, 20, 40)
     p2Paddle = (p2X,p2Y, 20, 40)
+    ballCenter = (ballX,ballY)
     window.fill((0,0,0))
     pygame.draw.rect(window, rgbColour, p1Paddle)
     pygame.draw.rect(window, rgbColour, p2Paddle)
@@ -39,22 +40,30 @@ def draw_game():
 # Everything that needs repeated checking - in the while 'run' while loop
 run = True
 while run:
-    pygame.time.delay(50)
+    pygame.time.delay(50) #50 milliseconds a frame
 
     # If player pressed up or down
     keyPressed = pygame.key.get_pressed()
     # Player 1 w & s for up and down keys
-    if keyPressed[pygame.K_w]:
+    if keyPressed[pygame.K_w] and p1Y != 0:
         p1Y -=10
-    if keyPressed[pygame.K_s]:
+    if keyPressed[pygame.K_s] and p1Y != winHeight - 40:
         p1Y +=10
 
     # Player 2 for up and down keys
-    if keyPressed[pygame.K_UP]:
+    if keyPressed[pygame.K_UP] and p2Y != 0 :
         p2Y -=10
-    if keyPressed[pygame.K_DOWN]:
+    if keyPressed[pygame.K_DOWN] and p2Y != winHeight - 40:
         p2Y +=10
 
+    #### Points System ####
+    if ballX == 0:
+        p1Score +=1
+
+    if ballX == winWidth:
+        p2Score +=1
+    
+    ballCenter = ()
     draw_game()
 
     # Quiting the game
