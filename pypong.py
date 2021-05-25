@@ -37,7 +37,7 @@ def draw_game():
 # Everything that needs repeated checking - in the while 'run' while loop
 run = True
 while run:
-    pygame.time.delay(100)
+    pygame.time.delay(50)
 
 
     # If player pressed up or down
