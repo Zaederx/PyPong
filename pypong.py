@@ -26,7 +26,7 @@ ballY = winHeight/2
 ballCenter = (ballX, ballY)
 ballV = 10 #ball velocity - 10 pixels per frame
 ballRadius = 5 
-rgbColour = (100,100,100)
+rgbColour = (255,255,255)
 
 def draw_game():
     p1Paddle = (p1X, p1Y, paddleWidth, paddleHeight)
