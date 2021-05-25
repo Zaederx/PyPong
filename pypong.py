@@ -44,15 +44,15 @@ while run:
     keyPressed = pygame.key.get_pressed()
     # Player 1 w & s for up and down keys
     if keyPressed[pygame.K_w]:
-        p1Y -=1
+        p1Y -=10
     if keyPressed[pygame.K_s]:
-        p1Y +=1
+        p1Y +=10
 
     # Player 2 for up and down keys
     if keyPressed[pygame.K_UP]:
-        p2Y -=1
+        p2Y -=10
     if keyPressed[pygame.K_DOWN]:
-        p2Y +=1
+        p2Y +=10
 
     draw_game()
 
