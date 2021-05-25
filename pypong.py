@@ -13,6 +13,7 @@ p1Paddle = (p1X,p1Y, 20, 40)
 p1Score = 0
 
 # Player 2 paddle position and dimensions
+p2X = winWidth - 20
 p2Y = winHeight/2
 p2Paddle = (p2X,p2Y, 20, 40)
 p2Score = 0
