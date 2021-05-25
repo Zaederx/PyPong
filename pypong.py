@@ -22,7 +22,7 @@ ballX = winWidth/2
 ballY = winHeight/2
 ballCenter = (ballX,ballY)
 ballV = 1 #ball velocity
-ballRadius = 20 
+ballRadius = 5 
 rgbColour = (100,100,100)
 def draw_game():
     p1Paddle = (p1X,p1Y, 20, 40)
@@ -44,15 +44,15 @@ while run:
     keyPressed = pygame.key.get_pressed()
     # Player 1 w & s for up and down keys
     if keyPressed[pygame.K_w]:
-        p1Y +=1
-    if keyPressed[pygame.K_s]:
         p1Y -=1
+    if keyPressed[pygame.K_s]:
+        p1Y +=1
 
     # Player 2 for up and down keys
     if keyPressed[pygame.K_UP]:
-        p2Y +=1
-    if keyPressed[pygame.K_DOWN]:
         p2Y -=1
+    if keyPressed[pygame.K_DOWN]:
+        p2Y +=1
 
     draw_game()
 
