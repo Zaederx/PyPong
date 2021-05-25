@@ -1,29 +1,30 @@
 import pygame
 pygame.init()
 
-winHeight = 1280
-winWidth = 720
-window = pygame.display.set_mode((winHeight,winWidth))
+winWidth = 1280
+winHeight = 720
+window = pygame.display.set_mode((winWidth,winHeight))
 pygame.display.set_caption("PyPong")
 
-# Player 1 paddle position
+# Player 1 paddle position and dimensions
 p1X = 0
 p1Y = winHeight/2
 p1Paddle = (p1X,p1Y, 20, 40)
 p1Score = 0
 
-# Player 2 paddle position
-p2X = winWidth
+# Player 2 paddle position and dimensions
 p2Y = winHeight/2
 p2Paddle = (p2X,p2Y, 20, 40)
 p2Score = 0
-# Ball code
+
+# Ball position and dimensions
 ballX = winWidth/2
 ballY = winHeight/2
 ballCenter = (ballX,ballY)
 ballV = 1 #ball velocity
 ballRadius = 5 
 rgbColour = (100,100,100)
+
 def draw_game():
     p1Paddle = (p1X,p1Y, 20, 40)
     p2Paddle = (p2X,p2Y, 20, 40)
@@ -38,7 +39,6 @@ def draw_game():
 run = True
 while run:
     pygame.time.delay(50)
-
 
     # If player pressed up or down
     keyPressed = pygame.key.get_pressed()
