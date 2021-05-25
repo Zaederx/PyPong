@@ -22,7 +22,7 @@ p2Score = 0
 ballX = winWidth/2
 ballY = winHeight/2
 ballCenter = (ballX,ballY)
-ballV = 1 #ball velocity
+ballV = 10 #ball velocity - 10 pixels per frame
 ballRadius = 5 
 rgbColour = (100,100,100)
 
