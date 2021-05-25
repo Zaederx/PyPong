@@ -3,37 +3,38 @@ pygame.init()
 
 winWidth = 1280
 winHeight = 720
-window = pygame.display.set_mode((winWidth,winHeight))
+window = pygame.display.set_mode((winWidth, winHeight))
 pygame.display.set_caption("PyPong")
 
+paddleWidth = 20
+paddleHeight = 40
 # Player 1 paddle position and dimensions
 p1X = 0
 p1Y = winHeight/2
-p1Paddle = (p1X,p1Y, 20, 40)
+p1Paddle = (p1X, p1Y, paddleWidth, paddleHeight)
 p1Score = 0
 
 # Player 2 paddle position and dimensions
 p2X = winWidth - 20
 p2Y = winHeight/2
-p2Paddle = (p2X,p2Y, 20, 40)
+p2Paddle = (p2X, p2Y, paddleWidth, paddleHeight)
 p2Score = 0
 
 # Ball position and dimensions
 ballX = winWidth/2
 ballY = winHeight/2
-ballCenter = (ballX,ballY)
+ballCenter = (ballX, ballY)
 ballV = 10 #ball velocity - 10 pixels per frame
 ballRadius = 5 
 rgbColour = (100,100,100)
 
 def draw_game():
-    p1Paddle = (p1X,p1Y, 20, 40)
-    p2Paddle = (p2X,p2Y, 20, 40)
-    ballCenter = (ballX,ballY)
+    p1Paddle = (p1X, p1Y, paddleWidth, paddleHeight)
+    p2Paddle = (p2X, p2Y, paddleWidth, paddleHeight)
     window.fill((0,0,0))
     pygame.draw.rect(window, rgbColour, p1Paddle)
     pygame.draw.rect(window, rgbColour, p2Paddle)
-    pygame.draw.circle(window, rgbColour, ballCenter, ballRadius )
+    pygame.draw.circle(window, rgbColour, ballCenter, ballRadius)
     pygame.display.update()
 
 
