@@ -67,11 +67,11 @@ while run:
         p2Score +=1
     
     # If the ball hits the left paddle
-    if ballX == paddleWidth and ballY > p1Y and ballY < p1Y + paddleHeight:
+    if ballX == paddleWidth and ballY + ballRadius > p1Y and ballY - ballRadius < p1Y + paddleHeight:
         ballV = -10
 
-    # If the ball hits the left paddle
-    if ballX == paddleWidth and ballY > p2Y and ballY < p2Y + paddleHeight:
+    # If the ball hits the right paddle
+    if ballX == winWidth - paddleWidth and ballY+ballRadius > p2Y and ballY - ballRadius < p2Y + paddleHeight:
         ballV = +10
     ballCenter = (ballX + ballV, ballY)
     draw_game()
