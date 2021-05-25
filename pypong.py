@@ -43,6 +43,8 @@ run = True
 while run:
     pygame.time.delay(50) #50 milliseconds a frame
 
+    ballX = ballX - ballV
+    ballCenter = (ballX, ballY)
     # If player pressed up or down
     keyPressed = pygame.key.get_pressed()
     # Player 1 w & s for up and down keys
@@ -64,7 +66,14 @@ while run:
     if ballX == winWidth:
         p2Score +=1
     
-    ballCenter = ()
+    # If the ball hits the left paddle
+    if ballX == paddleWidth and ballY > p1Y and ballY < p1Y + paddleHeight:
+        ballV = -10
+
+    # If the ball hits the left paddle
+    if ballX == paddleWidth and ballY > p2Y and ballY < p2Y + paddleHeight:
+        ballV = +10
+    ballCenter = (ballX + ballV, ballY)
     draw_game()
 
     # Quiting the game
