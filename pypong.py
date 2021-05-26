@@ -1,4 +1,5 @@
 import pygame
+from pygame.constants import WINDOWSHOWN
 pygame.init()
 
 winWidth = 1280
@@ -28,12 +29,20 @@ ballV = 10 #ball velocity - 10 pixels per frame
 ballRadius = 5 
 rgbColour = (255,255,255)
 
+# Middle Line
+lineX = winWidth/2
+lineY = 0
+lineWidth = 10
+lineHeight = winHeight
+lineDimensions = (lineX, lineY, lineWidth, lineHeight)
+
 def draw_game():
     p1Paddle = (p1X, p1Y, paddleWidth, paddleHeight)
     p2Paddle = (p2X, p2Y, paddleWidth, paddleHeight)
     window.fill((0,0,0))
     pygame.draw.rect(window, rgbColour, p1Paddle)
     pygame.draw.rect(window, rgbColour, p2Paddle)
+    pygame.draw.rect(window, rgbColour, lineDimensions)
     pygame.draw.circle(window, rgbColour, ballCenter, ballRadius)
     pygame.display.update()
 
