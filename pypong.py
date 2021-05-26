@@ -69,9 +69,17 @@ def p2DisplayScore():
     textY = 30
     window.blit(text, (textX,textY))
 
+# doesn't work in while loop for some reason - using code block instead
+def resetBall():
+    ballX = winWidth/2
+    ballY = winHeight/2
+    ballCenter = (ballX, ballY)
+    ballVX = 10 #ball velocity - 10 pixels per frame
+    ballVY = 0
+
 # Everything that needs repeated checking - in the while 'run' while loop
 run = True
-firstIteration = True
+# firstIteration = True
 while run:
     pygame.time.delay(50) #50 milliseconds a frame
 
@@ -92,16 +100,31 @@ while run:
     if keyPressed[pygame.K_DOWN] and p2Y != winHeight - 40:
         p2Y +=10
 
+    
     #### Points System ####
     if ballX == 0:
         p2Score +=1
         p2DisplayScore()
         pygame.display.flip()
+        # reset ball
+        ballX = winWidth/2
+        ballY = winHeight/2
+        ballCenter= (ballX, ballY)
+        ballVX = -10 #ball velocity - 10 pixels per frame
+        ballVY = 0
 
     if ballX == winWidth:
         p1Score +=1
         p1DisplayScore()
         pygame.display.flip()
+        # reset ball
+        ballX = winWidth/2
+        ballY = winHeight/2
+        ballCenter = (ballX, ballY)
+        ballVX = +10 #ball velocity - 10 pixels per frame
+        ballVY = 0
+
+        
     
     # If the ball hits the left paddle
     if ballX == paddleWidth and ballY + ballRadius > p1Y and ballY - ballRadius < p1Y + paddleHeight:
@@ -124,7 +147,7 @@ while run:
     if ballY >= winHeight:
         ballVY = -10
     
-    ballCenter = (ballX + ballVX, ballY)
+    # ballCenter = (ballX + ballVX, ballY)
     draw_game()
 
     # Quiting the game
