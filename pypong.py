@@ -36,6 +36,10 @@ lineWidth = 10
 lineHeight = winHeight
 lineDimensions = (lineX, lineY, lineWidth, lineHeight)
 
+
+# Colours
+white = (200, 200, 200)
+
 def draw_game():
     p1Paddle = (p1X, p1Y, paddleWidth, paddleHeight)
     p2Paddle = (p2X, p2Y, paddleWidth, paddleHeight)
@@ -45,13 +49,31 @@ def draw_game():
     pygame.draw.rect(window, rgbColour, lineDimensions)
     pygame.draw.circle(window, rgbColour, ballCenter, ballRadius)
     pygame.display.update()
+    p1DisplayScore()
+    p2DisplayScore()
+    pygame.display.flip()
 
+def p1DisplayScore():
+    font = pygame.font.Font(None, 30)
+    text = font.render("P1 Score: "+str(p1Score), True, white)
+    textX = ((winWidth/2) - 100)
+    textY = 30
+    window.blit(text, (textX,textY))
+    
+
+def p2DisplayScore():
+    font = pygame.font.Font(None, 30)
+    text = font.render("P2 Score: "+str(p2Score), True, white)
+    textX = ((winWidth/2) + 100)
+    textY = 30
+    window.blit(text, (textX,textY))
 
 # Everything that needs repeated checking - in the while 'run' while loop
 run = True
 while run:
     pygame.time.delay(50) #50 milliseconds a frame
-
+    p1DisplayScore()
+    p2DisplayScore()
     ballX = ballX - ballV
     ballCenter = (ballX, ballY)
     # If player pressed up or down
@@ -71,14 +93,16 @@ while run:
     #### Points System ####
     if ballX == 0:
         p1Score +=1
+        p1DisplayScore()
+   
 
     if ballX == winWidth:
         p2Score +=1
+        p2DisplayScore()
     
     # If the ball hits the left paddle
     if ballX == paddleWidth and ballY + ballRadius > p1Y and ballY - ballRadius < p1Y + paddleHeight:
         ballV = -10
-
     # If the ball hits the right paddle
     if ballX == winWidth - paddleWidth and ballY+ballRadius > p2Y and ballY - ballRadius < p2Y + paddleHeight:
         ballV = +10
