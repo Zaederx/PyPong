@@ -25,7 +25,8 @@ p2Score = 0
 ballX = winWidth/2
 ballY = winHeight/2
 ballCenter = (ballX, ballY)
-ballV = 10 #ball velocity - 10 pixels per frame
+ballVX = 10 #ball velocity - 10 pixels per frame
+ballVY = 0
 ballRadius = 5 
 rgbColour = (255,255,255)
 
@@ -56,7 +57,7 @@ def draw_game():
 def p1DisplayScore():
     font = pygame.font.Font(None, 30)
     text = font.render("P1 Score: "+str(p1Score), True, white)
-    textX = ((winWidth/2) - 100)
+    textX = ((winWidth/2) - 200)
     textY = 30
     window.blit(text, (textX,textY))
     
@@ -64,7 +65,7 @@ def p1DisplayScore():
 def p2DisplayScore():
     font = pygame.font.Font(None, 30)
     text = font.render("P2 Score: "+str(p2Score), True, white)
-    textX = ((winWidth/2) + 100)
+    textX = ((winWidth/2) + 150)
     textY = 30
     window.blit(text, (textX,textY))
 
@@ -73,11 +74,9 @@ run = True
 firstIteration = True
 while run:
     pygame.time.delay(50) #50 milliseconds a frame
-   
-    
-    
 
-    ballX = ballX - ballV
+    ballX = ballX - ballVX
+    ballY = ballY + ballVY
     ballCenter = (ballX, ballY)
     # If player pressed up or down
     keyPressed = pygame.key.get_pressed()
@@ -106,11 +105,20 @@ while run:
     
     # If the ball hits the left paddle
     if ballX == paddleWidth and ballY + ballRadius > p1Y and ballY - ballRadius < p1Y + paddleHeight:
-        ballV = -10
+        ballVX = -10
+        if keyPressed[pygame.K_w] and p1Y != 0:
+            ballVY -=10
+        if keyPressed[pygame.K_s] and p1Y != winHeight - 40:
+            ballVY +=10
+
     # If the ball hits the right paddle
     if ballX == winWidth - paddleWidth and ballY+ballRadius > p2Y and ballY - ballRadius < p2Y + paddleHeight:
-        ballV = +10
-    ballCenter = (ballX + ballV, ballY)
+        ballVX = +10
+        if keyPressed[pygame.K_UP] and p2Y != 0 :
+            ballVY -=10
+        if keyPressed[pygame.K_DOWN] and p2Y != winHeight - 40:
+            ballVY +=10
+    ballCenter = (ballX + ballVX, ballY)
     draw_game()
 
     # Quiting the game
