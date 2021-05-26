@@ -94,13 +94,13 @@ while run:
 
     #### Points System ####
     if ballX == 0:
-        p1Score +=1
-        p1DisplayScore()
+        p2Score +=1
+        p2DisplayScore()
         pygame.display.flip()
 
     if ballX == winWidth:
-        p2Score +=1
-        p2DisplayScore()
+        p1Score +=1
+        p1DisplayScore()
         pygame.display.flip()
     
     # If the ball hits the left paddle
