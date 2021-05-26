@@ -8,7 +8,7 @@ window = pygame.display.set_mode((winWidth, winHeight))
 pygame.display.set_caption("PyPong")
 
 paddleWidth = 20
-paddleHeight = 40
+paddleHeight = 60
 # Player 1 paddle position and dimensions
 p1X = 0
 p1Y = winHeight/2
