@@ -118,6 +118,12 @@ while run:
             ballVY -=10
         if keyPressed[pygame.K_DOWN] and p2Y != winHeight - 40:
             ballVY +=10
+
+    if ballY <= 0:
+        ballVY = +10
+    if ballY >= winHeight:
+        ballVY = -10
+    
     ballCenter = (ballX + ballVX, ballY)
     draw_game()
 
