@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 Then enter
 ```
-python PySnake.py
+python pypong.py
 ```
 
 ## Testing
