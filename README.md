@@ -19,7 +19,7 @@
 ## Background
 I wanted to practice using python as well as wanting to make a pong game, so...I made a pong game in python...
 ## Images
-![IMG_2113](https://github.com/Zaederx/PySnake/assets/38586415/6bfe8648-2358-42fb-ae80-a4c52021bb8e)
+
 
 ## Technologies
 - Python
